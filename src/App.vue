@@ -1,7 +1,9 @@
 <template>
   <div id="app">
+  
+    <navbar id="" />
     <hr />
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/addclient">+ Client</router-link> |
@@ -9,15 +11,18 @@
       <router-link to="/login" v-if="getToken==null">Login |</router-link> 
       <router-link to="/logout" v-if="getToken!=null">Logout |</router-link>
       <router-link to="/signup">Sign Up</router-link>
-    </div>
-    <hr />
+      
+    </div> -->
+    
      <router-view/>
   </div>
 </template>
 
 <script>
 import {mapGetters} from 'vuex'
+import Navbar from './components/Navbar'
 export default {
+  components:{Navbar},
   computed: {
     ...mapGetters(['getToken'])
   } ,
@@ -37,6 +42,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  margin-top:1%;
   
 }
 
