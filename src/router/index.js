@@ -7,6 +7,7 @@ import AddService from '../views/AddService.vue'
 import Signup from '../views/Signup.vue'
 import Login from '../views/Login.vue'
 import ClientDetails from '../views/ClientDetails.vue'
+import Logout from '../views/Logout.vue'
 
 Vue.use(VueRouter)
 
@@ -53,6 +54,11 @@ const routes = [
     path: '/clientdetails/:clientId',
     name: 'Client Details',
     component: ClientDetails
+  },
+  {
+    path: '/logout',
+    name: 'Logout',
+    component: Logout
   }
 ]
 

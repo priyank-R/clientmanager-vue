@@ -4,8 +4,8 @@
 
 <script>
 export default {
-    created(){
-        this.$store.getters.getToken ? null : 
+    beforeCreate(){
+        this.$store.getters.getToken()!==null ? null : 
         this.$router.push('/login')
     }
 }

@@ -7,14 +7,14 @@ const getAxiosInstance = ()=>{
     return Axios.create({
         baseURL: 'http://localhost:8082/api',
         headers: {
-            'Authorization': `Bearer ${store.getters.getToken}`
+            'Authorization': `Bearer ${store.getters.getToken()}`
         }
     })
 }
 const axios = Axios.create({
     baseURL: 'http://localhost:8082/api',
     headers: {
-        'Authorization': `Bearer ${store.getters.getToken}`
+        'Authorization': `Bearer ${store.getters.getToken()}`
     }
 })
 
