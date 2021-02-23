@@ -13,7 +13,7 @@
                 <div class="error" style="color: red" v-if="!($v.email.required)">Required</div>
                 <div class="error" style="color: red" v-if="!($v.email.email)">Valid email</div>
 
-                <input type="text" name="domain" @blur="validUrl()" v-model="domain" placeholder="Domain name" style="margin-bottom: 10px" />
+                <input type="text" name="domain" @blur="modifyURL()" v-model="domain" placeholder="Domain name" style="margin-bottom: 10px" />
                 <div class="error" style="color: red" v-if="!($v.domain.required)">Required</div>
                 <div class="error" style="color: red" v-if="!($v.domain.url)">Valid domain</div>
 
@@ -88,10 +88,8 @@ export default {
 
             }
         },
-        validUrl: function () {
-            if (this.domain.search('http://') == -1 && this.domain.search('https://') == -1) {
-                this.domain = "http://" + this.domain
-            }
+        modifyURL(){
+            this.domain = this.toValidUrl(this.domain)
         }
     },
     validations: {
