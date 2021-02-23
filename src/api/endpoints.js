@@ -74,10 +74,26 @@ const getClients = async () => {
     })
 }
 
+const addNewService = async(formData)=>{
+    const instance = getAxiosInstance()
+    return instance.post('/user/addservice',{...formData}).then(res=>{
+        return res.data
+    }).catch(e=>{
+        if(e.response){
+            return e.response.data
+        }else if(e.request){
+            throw new Error('No Response Received from Server')
+        }else {
+            console.log('Something else',e)
+        }
+    })
+}
+
 export  {
     createUser,
     loginUser,
     addNewClient,
     getClients,
-    getUser
+    getUser,
+    addNewService
 }
