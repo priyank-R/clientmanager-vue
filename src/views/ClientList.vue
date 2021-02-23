@@ -11,20 +11,20 @@
                 </div>
             </template>
             <template #cell(addService)="row">
-                <router-link :to="'/addservices/' + row.item.id">
+                <router-link :to="'/addservice/' + row.item.id">
                     <b-icon-person-plus />
                 </router-link>
             </template>
             <template #cell(email)="row">
-                {{ row.item.info.email }}
+                {{ row.item.email }}
 
             </template>
             <template #cell(company)="row">
-                {{ row.item.info.company ? row.item.info.company :  '-'}}
+                {{ row.item.company ? row.item.company :  '-'}}
             </template>
 
             <template #cell(domain)="row">
-                {{ row.item.info.domain ? row.item.info.domain :  '-'}}
+                {{ row.item.domain ? row.item.domain :  '-'}}
             </template>
             <template #cell(viewServices)> All </template>
         </b-table>
@@ -101,7 +101,8 @@ export default {
     async created() {
         const data = this.getClients().then((response) => {
             if (response.status == "success") {
-                this.$store.commit("setClients", response.data.clients);
+                console.log('request successfull :', response)
+                this.$store.commit("setClients", response.clients);
                 this.isBusy = false;
             }
         });
