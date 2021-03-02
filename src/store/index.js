@@ -13,6 +13,7 @@ export default new Vuex.Store({
     setToken(state, token) {
         //storing token in local storage
       localStorage.setItem("token", token);
+      state.token  = token
     },
     setClients(state, clients) {
       state.clients = clients;
